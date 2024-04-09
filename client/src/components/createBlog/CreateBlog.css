@@ -1,0 +1,13 @@
+.createBlog {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.createBlog input,
+.createBlog textarea {
+  width: 60vw;
+}
+.createBlog textarea {
+  height: 150px;
+}
