@@ -24,36 +24,32 @@ const HomePage = () => {
   return (
     <div className="homePage">
       {blogs.map((item) => (
-        <Link
-          key={item._id}
-          to={`/blog/${item._id}`}
-          style={{ textDecoration: "none", color: "inherit" }}
-        >
-          <Card>
-            <Card.Header>{item.title}</Card.Header>
+        <Card key={item._id}>
+          <Card.Header>{item.title}</Card.Header>
 
-            <Card.Body>
+          <Card.Body>
+            <Link
+              to={`/blog/${item._id}`}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               <Card.Title>{item.author}</Card.Title>
               <Card.Text>{item.content.slice(0, 50)} ...</Card.Text>
+            </Link>
 
-              {isLogged ? (
-                <>
-                  <Button
-                    onClick={() => deleteBlog(item._id)}
-                    variant="primary"
-                  >
-                    Delete
-                  </Button>
-                  <Card.Link href={`/updateBlog/${item._id}`}>
-                    <Button variant="primary">Update</Button>
-                  </Card.Link>
-                </>
-              ) : (
-                <></>
-              )}
-            </Card.Body>
-          </Card>
-        </Link>
+            {isLogged ? (
+              <>
+                <Button onClick={() => deleteBlog(item._id)} variant="primary">
+                  Delete
+                </Button>
+                <Card.Link href={`/updateBlog/${item._id}`}>
+                  <Button variant="primary">Update</Button>
+                </Card.Link>
+              </>
+            ) : (
+              <></>
+            )}
+          </Card.Body>
+        </Card>
       ))}
     </div>
   );

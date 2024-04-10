@@ -3,6 +3,7 @@ import useGlobalContext from "../../hooks/useGlobalContext";
 import axios from "axios";
 import { server } from "../../context/AllContext";
 import { useParams } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 const UpdateBlog = () => {
   let { id } = useParams();
@@ -52,8 +53,8 @@ const UpdateBlog = () => {
   };
 
   return (
-    <div>
-      <h2>Create New BLog</h2>
+    <div className="createBlog">
+      <h2>Update BLog</h2>
       <form onSubmit={onBlogSubmit}>
         <input
           type="text"
@@ -63,6 +64,8 @@ const UpdateBlog = () => {
           required
           onChange={onInputChange}
         />
+        <br />
+        <br />
         <input
           type="text"
           name="author"
@@ -71,6 +74,8 @@ const UpdateBlog = () => {
           required
           onChange={onInputChange}
         />
+        <br />
+        <br />
         <textarea
           name="content"
           placeholder="Enter your Blog's Content"
@@ -78,10 +83,9 @@ const UpdateBlog = () => {
           required
           onChange={onInputChange}
         />
-
-        <button type="submit" className="z-btn ">
-          Submit
-        </button>
+        <br />
+        <br />
+        <Button type="submit">Submit</Button>
       </form>
     </div>
   );
